@@ -33,3 +33,9 @@ class Node:
     @property
     def is_leaf(self):
         return not self.children
+    
+    @property
+    def tree_depth(self) -> int:
+        if self.is_leaf:
+            return 1
+        return 1 + max(child.tree_depth for child in self.children)
